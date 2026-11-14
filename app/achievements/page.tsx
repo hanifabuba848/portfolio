@@ -2,7 +2,7 @@ import { Award, BookOpen, Trophy } from "lucide-react";
 
 export default function AchievementsPage() {
   return (
-    <main className="min-h-screen bg-black px-10 py-20">
+    <main className="min-h-screen bg-[#0a0512] px-6 md:px-10 pt-28 pb-20">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Achievements & Certifications

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { ArrowDown, Mail, MapPin, Phone, Github, Linkedin, Award, BookOpen, Trophy } from "lucide-react";
+import { ArrowDown, Mail, MapPin, Phone, Github, Linkedin, Award, BookOpen, Trophy, Terminal } from "lucide-react";
 import projects from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import SkillCard from "@/components/SkillCard";
@@ -57,23 +57,85 @@ export default function Home() {
               <Link href="#contact" className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-all duration-300">
                 Contact Me
               </Link>
+              <a 
+                href="https://github.com/hanifabuba848" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-1"
+              >
+                <Github size={20} />
+                <span>GitHub</span>
+              </a>
             </div>
           </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="flex-1 relative hidden md:block"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2 }}
+            className="flex-1 relative w-full max-w-lg hidden md:block"
           >
-            <div className="relative w-80 h-80 mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 to-indigo-500 rounded-full blur-[80px] opacity-50 animate-pulse"></div>
-              <Image 
-                src="/images/profile-me.jpg" 
-                alt="Profile" 
-                fill 
-                className="object-cover rounded-full border-4 border-white/10 shadow-2xl relative z-10"
-              />
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 to-indigo-500 rounded-3xl blur-[90px] opacity-30 animate-pulse pointer-events-none"></div>
+
+            {/* Futuristic Tech Console */}
+            <div className="relative bg-[#0d071b]/90 border border-purple-500/30 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl group hover:border-purple-500/50 transition-all duration-500">
+              {/* Terminal Window Header */}
+              <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10 text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <div className="flex items-center gap-1.5 text-gray-400 font-mono text-[11px]">
+                  <Terminal size={12} className="text-purple-400" />
+                  <span>developer.config.ts</span>
+                </div>
+                <span className="text-[10px] text-green-400 font-mono bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">
+                  Live
+                </span>
+              </div>
+
+              {/* Code Editor Content */}
+              <div className="p-5 font-mono text-xs leading-relaxed space-y-1.5 text-gray-300">
+                <div className="text-gray-500 italic">// Full-Stack Software Engineering Student</div>
+                <div>
+                  <span className="text-purple-400">const</span>{" "}
+                  <span className="text-indigo-300">engineer</span> = &#123;
+                </div>
+                <div className="pl-4">
+                  <span className="text-gray-400">alias:</span>{" "}
+                  <span className="text-green-300">&quot;PulseDev&quot;</span>,
+                </div>
+                <div className="pl-4">
+                  <span className="text-gray-400">stack:</span> &#123;
+                </div>
+                <div className="pl-8">
+                  frontend: [<span className="text-purple-300">&quot;Next.js 16&quot;</span>, <span className="text-purple-300">&quot;React 19&quot;</span>, <span className="text-purple-300">&quot;TypeScript&quot;</span>],
+                </div>
+                <div className="pl-8">
+                  backend: [<span className="text-indigo-300">&quot;Node.js&quot;</span>, <span className="text-indigo-300">&quot;Laravel/PHP&quot;</span>, <span className="text-indigo-300">&quot;REST APIs&quot;</span>],
+                </div>
+                <div className="pl-8">
+                  database: [<span className="text-blue-300">&quot;MySQL&quot;</span>, <span className="text-blue-300">&quot;PostgreSQL&quot;</span>]
+                </div>
+                <div className="pl-4">&#125;,</div>
+                <div className="pl-4">
+                  <span className="text-gray-400">status:</span>{" "}
+                  <span className="text-green-400">&quot;Available for Opportunities 🚀&quot;</span>,
+                </div>
+                <div className="pl-4">
+                  <span className="text-gray-400">architecture:</span>{" "}
+                  <span className="text-yellow-300">&quot;Scalable, Decoupled &amp; Robust&quot;</span>
+                </div>
+                <div>&#125;;</div>
+              </div>
+
+              {/* Tech Badges Footer */}
+              <div className="px-5 py-3 bg-white/5 border-t border-white/5 flex flex-wrap gap-2 text-[11px] font-mono text-purple-300">
+                <span className="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20">⚡ Turbopack</span>
+                <span className="px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/20">🔒 JWT &amp; APIs</span>
+                <span className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20">📦 Docker Ready</span>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -106,8 +168,24 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative group">
                <div className="absolute inset-0 bg-purple-600/20 blur-3xl rounded-full transition-all duration-500 group-hover:bg-purple-600/30"></div>
-               <div className="relative w-full aspect-square md:aspect-auto md:h-[500px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                 <Image src="/images/profile-me.jpg" alt="About me" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+               <div className="relative w-full aspect-square md:aspect-auto md:h-[500px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900/40">
+                 <Image 
+                   src="/images/tech-hero.jpg" 
+                   alt="Software Engineering Tech Architecture" 
+                   fill 
+                   className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0512] via-transparent to-transparent opacity-80"></div>
+                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                   <div>
+                     <p className="text-xs uppercase tracking-wider text-purple-400 font-mono font-semibold">Tech Architecture</p>
+                     <p className="text-sm text-white font-medium">Full-Stack &amp; Scalable Systems</p>
+                   </div>
+                   <div className="flex items-center gap-2">
+                     <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
+                     <span className="text-xs font-mono text-gray-300">Active</span>
+                   </div>
+                 </div>
                </div>
             </div>
             
@@ -238,7 +316,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="relative py-24 px-6 md:px-10 z-10 bg-black/60 border-t border-white/5">
-        <div className="absolute inset-0 bg-[url('/projects/projects-bg.jpg')] bg-cover opacity-5 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('/projects-bg.jpg')] bg-cover opacity-5 mix-blend-overlay"></div>
         
         <motion.div 
           initial="hidden"
@@ -260,7 +338,7 @@ export default function Home() {
                   <Mail size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-                <a href="mailto:bubahanifa20@gmail.com" className="text-gray-400 hover:text-purple-400 transition-colors">bubahanifa20@gmail.com</a>
+                <a href="mailto:hanifabuba6@gmail.com" className="text-gray-400 hover:text-purple-400 transition-colors">hanifabuba6@gmail.com</a>
               </div>
               
               <div className="bg-gray-900/50 backdrop-blur border border-white/5 rounded-2xl p-8 transform transition-all duration-300 hover:scale-[1.02] hover:bg-white/5">
@@ -294,10 +372,20 @@ export default function Home() {
             © {new Date().getFullYear()} PulseDev. All rights reserved. Built with Next.js & Tailwind.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-purple-600 transition-all">
+            <a 
+              href="https://github.com/hanifabuba848" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="GitHub Profile" 
+              className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-purple-600 transition-all"
+            >
               <Github size={20} />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all">
+            <a 
+              href="#" 
+              aria-label="LinkedIn Profile" 
+              className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all"
+            >
               <Linkedin size={20} />
             </a>
           </div>

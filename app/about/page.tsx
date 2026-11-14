@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-black px-10 py-20">
+    <main className="min-h-screen bg-[#0a0512] px-6 md:px-10 pt-28 pb-20">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
 
         {/* Text Section */}
@@ -47,17 +47,28 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Image Section */}
-        <div className="relative">
-          <div className="absolute inset-0 bg-purple-600/20 blur-3xl rounded-full"></div>
+        {/* Tech Visual Section */}
+        <div className="relative group">
+          <div className="absolute inset-0 bg-purple-600/20 blur-3xl rounded-full transition-all duration-500 group-hover:bg-purple-600/30"></div>
 
-          <div className="relative w-full h-[420px] rounded-xl overflow-hidden border border-gray-800">
+          <div className="relative w-full h-[420px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900/40">
             <Image
-              src="/images/profile-me.jpg"
-              alt="Profile image"
+              src="/images/tech-hero.jpg"
+              alt="Engineering Tech Architecture"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0512] via-transparent to-transparent opacity-80"></div>
+            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-wider text-purple-400 font-mono font-semibold">Tech Architecture</p>
+                <p className="text-sm text-white font-medium">Modular Full-Stack Systems</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
+                <span className="text-xs font-mono text-gray-300">Live</span>
+              </div>
+            </div>
           </div>
         </div>
 

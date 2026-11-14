@@ -10,15 +10,15 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       service: 'gmail', // You can change this to your email provider
       auth: {
-        user: process.env.EMAIL_USER || 'your-email@gmail.com', // Add to .env.local
+        user: process.env.EMAIL_USER || 'hanifabuba6@gmail.com', // Add to .env.local
         pass: process.env.EMAIL_PASS || 'your-app-password', // Add to .env.local
       },
     });
 
     // Email options
     const mailOptions = {
-      from: `Portfolio Contact Form <${process.env.EMAIL_USER || 'your-email@gmail.com'}>`,
-      to: process.env.EMAIL_USER || 'your-email@gmail.com', // Sending the email to yourself
+      from: `Portfolio Contact Form <${process.env.EMAIL_USER || 'hanifabuba6@gmail.com'}>`,
+      to: process.env.EMAIL_USER || 'hanifabuba6@gmail.com', // Sending the email to yourself
       replyTo: email,
       subject: `New Message From ${name} (Portfolio)`,
       text: `You have received a new message from your portfolio contact form.\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,

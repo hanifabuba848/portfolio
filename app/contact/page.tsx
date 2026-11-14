@@ -1,39 +1,54 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Github } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-black px-10 py-20">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          Contact Me
-        </h1>
+    <main className="min-h-screen bg-[#0a0512] px-6 md:px-10 py-28 relative">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Get In Touch
+          </h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full mb-6"></div>
+          <p className="text-gray-400 max-w-xl mx-auto">
+            I am open to software engineering opportunities, collaborations, and projects.
+            Feel free to reach out directly or send a message below.
+          </p>
+        </div>
 
-        <p className="text-gray-400 mb-12 max-w-xl">
-          I am open to internships, collaborations, and learning opportunities.
-          Feel free to reach out using the details below.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8">
-
+        {/* Contact info cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           <ContactCard
-            icon={<Mail size={26} />}
+            icon={<Mail size={24} />}
             title="Email"
-            value="bubahanifa20@gmail.com"
+            value="hanifabuba6@gmail.com"
+            href="mailto:hanifabuba6@gmail.com"
           />
 
           <ContactCard
-            icon={<Phone size={26} />}
+            icon={<Github size={24} />}
+            title="GitHub"
+            value="@hanifabuba848"
+            href="https://github.com/hanifabuba848"
+          />
+
+          <ContactCard
+            icon={<Phone size={24} />}
             title="Phone"
-            value="+234 8164142131,
-            9113042753"
+            value="+234 816 414 2131"
+            href="tel:+2348164142131"
           />
 
           <ContactCard
-            icon={<MapPin size={26} />}
+            icon={<MapPin size={24} />}
             title="Location"
             value="Nigeria"
           />
+        </div>
 
+        {/* Contact Form Section */}
+        <div className="max-w-2xl mx-auto">
+          <ContactForm />
         </div>
       </div>
     </main>
@@ -44,25 +59,41 @@ function ContactCard({
   icon,
   title,
   value,
+  href,
 }: {
   icon: React.ReactNode;
   title: string;
   value: string;
+  href?: string;
 }) {
-  return (
-    <div className="bg-gray-900/80 border border-gray-800 rounded-xl p-6
-    hover:border-purple-500 transition duration-300 text-center">
-      <div className="text-purple-400 mb-4 flex justify-center">
+  const content = (
+    <div className="bg-gray-900/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-500/50 hover:bg-gray-900/80 transition duration-300 text-center h-full flex flex-col items-center justify-center group shadow-lg">
+      <div className="w-12 h-12 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
         {icon}
       </div>
 
-      <h3 className="text-lg font-semibold text-white mb-1">
+      <h3 className="text-base font-semibold text-white mb-1">
         {title}
       </h3>
 
-      <p className="text-gray-400 text-sm">
+      <p className="text-gray-400 text-sm break-all group-hover:text-purple-300 transition-colors">
         {value}
       </p>
     </div>
   );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        className="block"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 }

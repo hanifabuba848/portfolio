@@ -4,9 +4,9 @@ import ProjectCard from "@/components/ProjectCard";
 export default function ProjectsPage() {
   return (
     <main
-      className="min-h-screen px-10 py-20 bg-cover bg-center relative"
+      className="min-h-screen px-6 md:px-10 pt-28 pb-20 bg-cover bg-center relative bg-[#0a0512]"
       style={{
-        backgroundImage: "url('/images/projects-bg.jpg')",
+        backgroundImage: "url('/projects-bg.jpg')",
       }}
     >
       {/* Dark overlay */}
